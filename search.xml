@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hexo 搭建个人博客网站+部署博客到 GitHub 的技巧</title>
+    <url>/2020/12/26/Hexo%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99+%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E5%88%B0%20GitHub%20%E7%9A%84%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<h1 id="Hexo简介"><a href="#Hexo简介" class="headerlink" title="Hexo简介"></a>Hexo简介</h1><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 <a href="https://www.runoob.com/markdown/md-tutorial.html">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<a id="more"></a>
+
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><ul>
+<li><p><a href="https://nodejs.org/en/">Node.js下载地址</a></p>
+</li>
+<li><p>从上面的链接下载node.js，并安装。</p>
+<ul>
+<li>注意：官方链接可能需要<strong>翻墙</strong></li>
+</ul>
+</li>
+<li><p>测试是否安装成功显示版本号即成功</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+<li><p>npm包管理器</p>
+<ul>
+<li>Hexo框架需要通过npm管理工具进行安装</li>
+<li>安装Node.js时默认安装<font color="red">npm</font>包管理器</li>
+<li>测试是否安装成功，显示版本号即成功<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</li>
+<li><p><font color="red">npm换源</font></p>
+<ul>
+<li><p>以下方法任选其一</p>
+<blockquote>
+<h3 id="1-设置npm淘宝镜像站"><a href="#1-设置npm淘宝镜像站" class="headerlink" title="1. 设置npm淘宝镜像站"></a>1. 设置npm淘宝镜像站</h3><ul>
+<li><p>npm默认的源的下载速度可能很慢，建议使用淘宝镜像替换。</p>
+</li>
+<li><p>执行下面的命令，下载<code>cnpm</code>，将npm的源设置成淘宝镜像站。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<h3 id="2-安装nrm"><a href="#2-安装nrm" class="headerlink" title="2.安装nrm"></a>2.安装nrm</h3></li>
+<li><p>nrm：一个 npm 源管理器,允许你快速地在 npm源间切换。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g nrm</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nrm ls        			#查看可选的源</span><br><span class="line">nrm test taobao       	 #测试相应源的响应速度</span><br><span class="line">nrm use taobao       	 #切换到taobao源</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><ul>
+<li><p><a href="https://git-scm.com/">Git下载地址</a></p>
+</li>
+<li><p>测试是否安装成功,显示版本号即成功</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git -v</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="申请Github账号"><a href="#申请Github账号" class="headerlink" title="申请Github账号"></a>申请Github账号</h3></li>
+<li><p><a href="https://github.com/">Github注册页面</a></p>
+</li>
+<li><p>输入<strong>用户名，Email，密码</strong>，注册账号。</p>
+</li>
+</ul>
+<h2 id="Hexo搭建过程"><a href="#Hexo搭建过程" class="headerlink" title="Hexo搭建过程"></a>Hexo搭建过程</h2><h3 id="安装Hexo框架（以下方法任选其一）"><a href="#安装Hexo框架（以下方法任选其一）" class="headerlink" title="安装Hexo框架（以下方法任选其一）"></a>安装Hexo框架（以下方法任选其一）</h3><ul>
+<li><ol>
+<li><h3 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h3><blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+<li><h3 id="进阶安装和使用"><a href="#进阶安装和使用" class="headerlink" title="进阶安装和使用"></a>进阶安装和使用</h3><ul>
+<li>对于熟悉 npm 的进阶用户，可以仅局部安装 <code>hexo</code> 包<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo			#局部安装</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</li>
+<li><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><ol>
+<li><p>创建一个空的文件夹来存放博客文件;</p>
+</li>
+<li><p>进入到刚创建的文件夹内打开命令行窗口<font color="red">依次执行</font>下列命令;</p>
+</li>
+<li><p>执行下列命令时确保文件夹内<font color="red">不要有任何文件</font>。</p>
+<blockquote>
+<h3 id="初探hexo"><a href="#初探hexo" class="headerlink" title="初探hexo"></a>初探hexo</h3><ul>
+<li><p>第一次使用hexo，在本地创建服务器使用。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init				#初始化博客文件夹</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo generate			#生成博客的静态页面</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo server       	 	#开启本地服务器</span><br></pre></td></tr></table></figure>
+<p><img src="https://s3.ax1x.com/2020/12/18/rtilGR.png"></p>
+</li>
+<li><p>访问本地测试服务器<code>http://localhost:4000</code>，即可看到搭建好的效果。</p>
+</li>
+<li><p>常见问题：为什么访问 <strong><a href="http://localhost:4000/">http://localhost:4000</a></strong> ，无反应？</p>
+<ul>
+<li>解决方法：可能是由于端口问题引起的。使用Ctrl+C中断本地服务，使用命令<code>hexo s -p 5000</code>重新开启本地服务，访问 <strong><a href="http://localhost:5000/">http://localhost:5000</a></strong> 可以看到博客页面了。</li>
+</ul>
+</li>
+</ul>
+<hr>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><h3 id="将hexo博客部署到github上"><a href="#将hexo博客部署到github上" class="headerlink" title="将hexo博客部署到github上"></a>将hexo博客部署到github上</h3><ol>
+<li><h3 id="在GitHub上创建一个仓库"><a href="#在GitHub上创建一个仓库" class="headerlink" title="在GitHub上创建一个仓库"></a>在GitHub上创建一个仓库</h3><ul>
+<li><img src="https://s3.ax1x.com/2020/12/18/rtiua4.png"></li>
+<li>仓库名必须以 GitHub用户名+github.io 的格式填写</li>
+<li>其他默认</li>
+</ul>
+</li>
+<li><h3 id="安装deploy-git插件"><a href="#安装deploy-git插件" class="headerlink" title="安装deploy-git插件"></a>安装deploy-git插件</h3><ul>
+<li><p>在blog存放文件夹内安装插件</p>
+</li>
+<li><p>方便使用<code>hexo deploy</code>部署到github</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</li>
+<li><h3 id="配置SSH-Key"><a href="#配置SSH-Key" class="headerlink" title="配置SSH Key"></a>配置SSH Key</h3><ul>
+<li><h3 id="生成ssh-key"><a href="#生成ssh-key" class="headerlink" title="生成ssh key"></a>生成ssh key</h3><blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;注册github时用的邮箱&quot;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>生成过程中会提示是否设置密码(可以留空)，不设密码提交时则不用输入(方便)</li>
+<li>不设置密码一路回车就行，出现这个图就表示生成完成。</li>
+</ul>
+<blockquote>
+<p><img src="https://s3.ax1x.com/2020/12/18/rtieqU.png"></p>
+</blockquote>
+</li>
+<li><h3 id="在GitHub中添加-SSH-Key"><a href="#在GitHub中添加-SSH-Key" class="headerlink" title="在GitHub中添加 SSH Key"></a>在GitHub中添加 SSH Key</h3><ul>
+<li><p>​    生成根据key时提供的路径找到<code>id_rsa.pub</code>文件</p>
+<p><img src="https://s3.ax1x.com/2020/12/18/rtiZrT.png"></p>
+</li>
+<li><p>用文本编辑器打开复制里面的内容</p>
+</li>
+<li><p>打开GitHub—&gt;点击头像—&gt;Settings，找到<code>SSH and GPG keys</code></p>
+<p><img src="https://s3.ax1x.com/2020/12/18/rtiVMV.png"></p>
+</li>
+<li><p>添加一个新的key</p>
+<p><img src="https://s3.ax1x.com/2020/12/18/rtinZF.png"></p>
+<p><img src="https://s3.ax1x.com/2020/12/18/rti1R1.png"></p>
+</li>
+<li><h3 id="测试是否成功"><a href="#测试是否成功" class="headerlink" title="测试是否成功"></a>测试是否成功</h3><ul>
+<li>在 cmd 内输入<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p><img src="https://s3.ax1x.com/2020/12/18/rtiKIJ.png"></p>
+<hr>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h3 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h3><ul>
+<li><p>在命令行窗口配置ssh</p>
+</li>
+<li><p>设置user.name和user.email。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;注册github用的用户名&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.email &quot;注册github用的邮箱&quot;</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</li>
+<li><h3 id="修改博客配置"><a href="#修改博客配置" class="headerlink" title="修改博客配置"></a>修改博客配置</h3><ul>
+<li><h3 id="配置-Deploy"><a href="#配置-Deploy" class="headerlink" title="配置 Deploy"></a>配置 Deploy</h3><ul>
+<li><p>github主页左侧找到之前创建的仓库进去把仓库地址复制下来，注意是<font color="red">SSH</font>的仓库地址。</p>
+<blockquote>
+<p><img src="https://s3.ax1x.com/2020/12/18/rtiQi9.png"></p>
+</blockquote>
+</li>
+<li><p>修改配置文件<strong>blog/_config.yml</strong>，修改deploy项的内容，如下所示：</p>
+<blockquote>
+<p>deploy:  # 类型</p>
+<p>​    type: git  # 仓库</p>
+<p>​    repo:<a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#105;&#x74;&#104;&#x75;&#x62;&#46;&#99;&#111;&#109;">&#x67;&#x69;&#x74;&#64;&#103;&#105;&#x74;&#104;&#x75;&#x62;&#46;&#99;&#111;&#109;</a>:github用户名/github用户名.github.io.git  # 分支 ，指定 repo 地址为Github仓库地址</p>
+<p>​    branch: master</p>
+<hr>
+</blockquote>
+<ul>
+<li>注意：<font color="red">**type: git **等中间的冒号后有空格。</font></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h3 id="推送到GitHub"><a href="#推送到GitHub" class="headerlink" title="推送到GitHub"></a>推送到GitHub</h3><ul>
+<li><p>在存放博客的文件夹内打开命令行窗口<font color="red">依次输入</font></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean							# 清空静态页面</span><br><span class="line">hexo generate						# 生成静态页面</span><br><span class="line">hexo deploy							# 部署到GitHub</span><br></pre></td></tr></table></figure>
+<hr>
+</blockquote>
+<ul>
+<li>打开网页，输入<a href="http://github_username.github.io,/">http://github_username.github.io，</a> 打开github上托管的博客。如我的博客地址是：<a href="https://eikonnomos.github.io/">https://eikonnomos.github.io/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="https://hexo.io/themes/">配置主题</a></p>
+</li>
+<li><h2 id="hexo命令缩写"><a href="#hexo命令缩写" class="headerlink" title="hexo命令缩写"></a>hexo命令缩写</h2><ul>
+<li>hexo支持命令缩写，如下所示。<code>hexo g</code>等价于<code>hexo generate</code><blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g：hexo generate			#生成博客的静态页面</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo s：hexo server				#开启本地服务器</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo d：hexo deploy				# 部署到GitHub</span><br></pre></td></tr></table></figure>
+<hr>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><h2 id="hexo组合命令"><a href="#hexo组合命令" class="headerlink" title="hexo组合命令"></a>hexo组合命令</h2><blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g -s				# 清除、生成、启动</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g -d				# 清除、生成、部署</span><br></pre></td></tr></table></figure>
+
+<hr>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+</search>
